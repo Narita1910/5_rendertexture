@@ -11,12 +11,12 @@
             #pragma vertex CustomRenderTextureVertexShader
             #pragma fragment frag
 
-            float _Speed;
+            float speed=1;
 
-            fixed4 frag (v2f_customrendertexture i) : SV_Target
-            {
-
-                return fixed4(frac(i.globalTexcoord+_Time),1);
+    fixed4 frag(v2f_customrendertexture i) : SV_Target
+    {
+     speed += 0.1;
+                return fixed4(frac(i.globalTexcoord+_Time*speed),1);
             }
             ENDCG
         }
